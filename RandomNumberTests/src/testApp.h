@@ -26,7 +26,8 @@ class testApp : public ofBaseApp{
     float noiseAmount;
     int serValX;
     int serValY;
-    float circleX;
-    float circleY;
+    float posX;
+    float posY;
     
+    ofSerial serial;
 };
