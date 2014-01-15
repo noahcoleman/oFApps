@@ -10,40 +10,32 @@ void testApp::setup(){
     ofSetBackgroundAuto(false);
     ofBackground(0);
     
-    noiseSteps = 0.1; //smoothness (I think) **default = 0.1
-    noiseAmount = 1000; //speed of change (I think) **default = 100
+    noiseStepsX = 0.1; //smoothness (I think) **default = 0.1
+    noiseStepsY = 0.2;
+    noiseAmount = 100; //speed of change (I think) **default = 100
     
 }
 
 //--------------------------------------------------------------
 void testApp::update(){
     t = ofGetElapsedTimef();
-    noiseX = ofNoise(t*noiseSteps)*100;
-    noiseY = ofNoise(t*noiseSteps*.834)+noiseAmount)*100;
+    noiseX = ofNoise(t*noiseStepsX);
+    noiseY = ofNoise(t*noiseStepsY);
     cout << noiseX << endl;
     cout << noiseY << endl;
-    if (noiseX <= 30) {
-        noiseX = 30;
-    }else if (noiseX >= 70){
-        noiseX = 70;
-    }
-    if (noiseY <= 30) {
-        noiseY = 30;
-    }else if (noiseY >= 70){
-        noiseY = 70;
-    }
-
-    //i need to map the output of ofNoise from 1000 to 2000 in order to send the servos to those values
-    serValX = ofMap(noiseX, 30, 70, 1000, 2000);
-    serValY = ofMap(noiseY, 30, 70, 1000, 2000);
+    
+    
+        //i need to map the output of ofNoise from 1000 to 2000 in order to send the servos to those values
+    serValX = ofMap(noiseX, 0, 1, 1000, 2000);
+    serValY = ofMap(noiseY, 0, 1, 1000, 2000);
     
     //print the values for the servos (this will go to the Arduino later)
     cout << serValX << endl;
     cout << serValY << endl;
     
     //map for screen test
-    posX = ofMap(noiseX, 30, 70, 0, ofGetWindowWidth());
-    posY = ofMap(noiseY, 30, 70, 0, ofGetWindowHeight());
+    posX = ofMap(noiseX, 0, 1, 0, ofGetWindowWidth());
+    posY = ofMap(noiseY, 0, 1, 0, ofGetWindowHeight());
     
     
     
@@ -65,7 +57,7 @@ void testApp::draw(){
         ofSetColor(0);
         ofCircle(posX, posY, 2);
     }
-    if ((posY = 0) || (posY = ofGetWindowHeight())){
+    if ((posY = 0) || (posY = ofGetWindowHeight()/2)){
         ofSetColor(0);
         ofCircle(posX, posY, 2);
     }
