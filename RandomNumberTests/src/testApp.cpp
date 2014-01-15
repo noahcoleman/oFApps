@@ -18,8 +18,8 @@ void testApp::setup(){
 //--------------------------------------------------------------
 void testApp::update(){
     t = ofGetElapsedTimef();
-    noiseX = ofNoise(t*noiseSteps+noiseAmount)*100;
-    noiseY = ofNoise(t*(noiseSteps*.834)+noiseAmount)*100;
+    noiseX = ofNoise(t*noiseSteps)*100;
+    noiseY = ofNoise(t*noiseSteps*.834)+noiseAmount)*100;
     cout << noiseX << endl;
     cout << noiseY << endl;
     if (noiseX <= 30) {
