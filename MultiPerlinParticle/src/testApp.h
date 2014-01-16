@@ -3,7 +3,7 @@
 #include "ofMain.h"
 #include "ofLaserBall.h"
 
-#define NBALLS 500
+#define NBALLS 3000
 
 class testApp : public ofBaseApp{
 

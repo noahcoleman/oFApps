@@ -8,6 +8,8 @@ void testApp::setup(){
     ofSetBackgroundAuto(false);
     ofBackground(0);
     
+    ofHideCursor();
+    
     
 }
 
@@ -23,7 +25,7 @@ void testApp::update(){
 //--------------------------------------------------------------
 void testApp::draw(){
     //BACKGROUND
-    ofSetColor(0,5);//black with 10% alpha
+    ofSetColor(0, 8);//black with 10% alpha
     ofRect(0,0,ofGetWidth(),ofGetHeight());//cover screen with rectangle
     
     // begin loop to draw the dots

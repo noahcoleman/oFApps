@@ -22,12 +22,19 @@ public: // place public functions or variables declarations here
     float t;      // time
     float noiseMultiplierX; // multiplier for ofNoise function
     float noiseMultiplierY;
+    float noiseMultiplierG;
+    float noiseMultiplierB;
     float noiseX; // noise
     float noiseY;
     float noiseOffsetX;
     float noiseOffsetY;
+    float noiseOffsetG;
+    float noiseOffsetB;
     float posX; // position
     float posY;
+    float noiseR;
+    float noiseG;
+    float noiseB;
     
     int diam;      // size
     
