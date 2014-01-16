@@ -24,6 +24,8 @@ public: // place public functions or variables declarations here
     float noiseMultiplierY;
     float noiseX; // noise
     float noiseY;
+    float noiseOffsetX;
+    float noiseOffsetY;
     float posX; // position
     float posY;
     

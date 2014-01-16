@@ -12,8 +12,10 @@
 ofLaserBall::ofLaserBall()
 {
     
-    noiseMultiplierX = ofRandom(0.1, 0.3);
-    noiseMultiplierY = ofRandom(0.1, 0.3);
+    noiseMultiplierX = ofRandom(0.0001, 0.01);
+    noiseMultiplierY = ofRandom(0.0001, 0.01);
+    noiseOffsetX = ofRandom(100, 10000);
+    noiseOffsetY = ofRandom(100, 10000);
     
     diam = 2;
 
@@ -22,11 +24,11 @@ ofLaserBall::ofLaserBall()
 void ofLaserBall::update(){
     
     t += 0.12; // ofGetElapsedTimef();
-    noiseX = ofNoise(t*noiseMultiplierX);
-    noiseY = ofNoise(t*noiseMultiplierY);
+    noiseX = ofNoise(t*noiseMultiplierX+noiseOffsetX);
+    noiseY = ofNoise(t*noiseMultiplierY+noiseOffsetY);
     
-    posX = ofMap(noiseX, 0, 1, 0, ofGetWindowWidth());
-    posY = ofMap(noiseY, 0, 1, 0, ofGetWindowHeight());
+    posX = ofMap(noiseX, 0, 1, -300, ofGetWindowWidth()+300);
+    posY = ofMap(noiseY, 0, 1, -300, ofGetWindowHeight()+300);
 
     
 }

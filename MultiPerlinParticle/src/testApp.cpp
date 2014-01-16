@@ -2,7 +2,7 @@
 
 //--------------------------------------------------------------
 void testApp::setup(){
-    ofSetFrameRate(200);
+    ofSetFrameRate(60);
     
     ofEnableAlphaBlending();
     ofSetBackgroundAuto(false);
@@ -23,7 +23,7 @@ void testApp::update(){
 //--------------------------------------------------------------
 void testApp::draw(){
     //BACKGROUND
-    ofSetColor(0,10);//black with 10% alpha
+    ofSetColor(0,5);//black with 10% alpha
     ofRect(0,0,ofGetWidth(),ofGetHeight());//cover screen with rectangle
     
     // begin loop to draw the dots
