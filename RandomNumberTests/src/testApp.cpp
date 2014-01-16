@@ -12,7 +12,6 @@ void testApp::setup(){
     
     noiseStepsX = 0.1; //smoothness (I think) **default = 0.1
     noiseStepsY = 0.2;
-    noiseAmount = 100; //speed of change (I think) **default = 100
     
 }
 
@@ -24,23 +23,18 @@ void testApp::update(){
     cout << noiseX << endl;
     cout << noiseY << endl;
     
-    
-        //i need to map the output of ofNoise from 1000 to 2000 in order to send the servos to those values
-    serValX = ofMap(noiseX, 0, 1, 1000, 2000);
-    serValY = ofMap(noiseY, 0, 1, 1000, 2000);
-    
-    //print the values for the servos (this will go to the Arduino later)
-    cout << serValX << endl;
-    cout << serValY << endl;
-    
-    //map for screen test
+    // SCREEN MAPPING
     posX = ofMap(noiseX, 0, 1, 0, ofGetWindowWidth());
     posY = ofMap(noiseY, 0, 1, 0, ofGetWindowHeight());
+
     
-    
-    
-    
-    
+    // SERVO MAPPING
+    // i need to map the output of ofNoise from 1000 to 2000 in order to send the servos to those values
+    serValX = ofMap(noiseX, 0, 1, 1000, 2000);
+    serValY = ofMap(noiseY, 0, 1, 1000, 2000);
+    // print the values for the servos (this will go to the Arduino later)
+    cout << serValX << endl;
+    cout << serValY << endl;
 
 }
 
@@ -53,15 +47,7 @@ void testApp::draw(){
     //VIRTUAL LASER POINTER & GITD TRAIL
     ofSetColor(0,255,0,90);//nice GITD green!
     ofCircle(posX, posY, 2);
-    if ((posX = 0) || (posX = ofGetWindowWidth())){
-        ofSetColor(0);
-        ofCircle(posX, posY, 2);
     }
-    if ((posY = 0) || (posY = ofGetWindowHeight()/2)){
-        ofSetColor(0);
-        ofCircle(posX, posY, 2);
-    }
-}
 
 //--------------------------------------------------------------
 void testApp::keyPressed(int key){
