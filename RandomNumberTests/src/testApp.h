@@ -22,8 +22,10 @@ class testApp : public ofBaseApp{
     float t;
     float noiseX;
     float noiseY;
-    float noiseStepsX;
-    float noiseStepsY;
+    float noiseMultiplierX;
+    float noiseMultiplierY;
+    float noiseOffsetX;
+    float noiseOffsetY;
     int serValX;
     int serValY;
     float posX;
