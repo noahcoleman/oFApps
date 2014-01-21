@@ -21,9 +21,11 @@ ofLaserBall::ofLaserBall()
     noiseOffsetY = ofRandom(100, 10000);
     noiseOffsetG = ofRandom(83, 937);
     noiseOffsetB = ofRandom(62, 336);
-
+    
+    noiseR = ofRandom(255);
     noiseB = ofMap(ofNoise(t*noiseMultiplierX+noiseOffsetX), 0, 1, 0, 255); //ofRandom(127);
     noiseG = ofMap(ofNoise(t*noiseMultiplierY+noiseOffsetY), 0, 1, 0, 255); //ofRandom(127, 255);
+    
     
     diam = ofRandom(1.7, 2);
 
@@ -48,6 +50,7 @@ void ofLaserBall::update(){
 
 void ofLaserBall::draw(){
     // values for R, G, B, A
+    // ofSetColor(noiseR, noiseB, noiseG);
     ofSetColor(0,noiseG,noiseB, ofRandom(89,90));
     ofCircle(posX+ofRandom(-0.6,0.6), posY+ofRandom(-0.6,0.6), diam);
 }
